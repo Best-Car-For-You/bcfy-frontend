@@ -5,3 +5,17 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+/* header.component.css */
+.menu-toggle {
+    background-image: url('./assets/burgermenu.png'); /* Adjust the path accordingly */
+    background-size: contain; /* Make sure the image fits well within the button */
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  /* Ensure that the button doesn't have any unwanted text or content inside */
+  .menu-toggle .sr-only {
+    display: none;
+  }
+  
