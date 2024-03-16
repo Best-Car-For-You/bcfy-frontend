@@ -30,7 +30,7 @@ const featuresData: Feature[] = [
   {
     id: 6,
     title: 'Continuous Improvement',
-    paragraph: 'Benefit from a platform that evolves with you. With the potential integration of machine learning tools like Amazon SageMaker, our system learns from user feedback and behavior to deliver increasingly accurate recommendations over time.',
+    paragraph: 'Experience a system that improves with use. It adapts to user feedback and behavior, offering more precise recommendations through potential machine learning integration.',
   },
 ];
 

@@ -1,25 +1,15 @@
-:host {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.features-section {
     background-color: #262627;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.feature-card {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .glossy-card {
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.glossy-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 15px;
@@ -27,16 +17,22 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .glossy-card:hover {
+    min-height: 250px;
+}
+
+.glossy-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  }
-  
-  @media (max-width: 768px) {
-    .glossy-card {
-      margin-bottom: 1rem;
+}
+
+#features {
+    padding-top: var(--space-above-features, 4rem);
+}
+
+@media (min-width: 768px) {
+    .grid {
+        gap: 1.5rem;
+        /* Define the grid to have equal height rows */
+        grid-template-rows: repeat(auto-fill, minmax(250px, 1fr));
     }
-  }
-  
+}
