@@ -15,23 +15,13 @@
 }
 
 .text-container {
-    /* Create the semi-transparent background */
-    background-color: rgba(255, 255, 255, 0.747); /* White with 70% opacity */
-    
-    /* Add some padding around the text */
+    background-color: rgba(255, 255, 255, 0.747);
     padding: 1rem;
-  
-    /* Add a border radius if you want rounded corners */
     border-radius: 8px;
-  
-    /* Use box shadow for a subtle depth effect, if desired */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
-    /* Other styles for positioning and size */
     width: fit-content;
-    max-width: 90%; /* To ensure it doesn't get too wide on large screens */
-    margin: auto; /* To center it if it has a max-width */
-    position: relative; /* Adjust as needed */
-    z-index: 10; /* Ensure it's above the background */
-  }
-  
+    max-width: 90%;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+}

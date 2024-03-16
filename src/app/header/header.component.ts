@@ -5,7 +5,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  standalone: true // This should be set to use the component as standalone
+  standalone: true
 })
 export class HeaderComponent {
   faBars = faBars;
