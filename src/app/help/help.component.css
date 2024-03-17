@@ -1,0 +1,29 @@
+.help-section {
+    background-color: #f9f9f9; 
+}
+
+.help-section h2 {
+    color: #333; 
+}
+
+.help-section p {
+    color: #666; 
+}
+
+.list-decimal {
+    margin-left: 1.5rem; 
+}
+
+.list-decimal li {
+    color: #444; 
+}
+
+@media (min-width: 768px) {
+    .help-section h2 {
+        font-size: 2.5rem; 
+    }
+
+    .list-decimal {
+        margin-left: 2rem; 
+    }
+}
