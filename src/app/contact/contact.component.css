@@ -1,0 +1,26 @@
+.contact-section {
+    background-color: #808080;
+  }
+  
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+.form-input,
+.form-textarea {
+    border-width: 1px;
+    border-style: solid;
+  }
+  
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #6366f1;
+  }
+  
+button {
+    cursor: pointer;
+  }
+  
