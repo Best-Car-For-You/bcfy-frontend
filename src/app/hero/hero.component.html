@@ -40,11 +40,11 @@
     </div>
     <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
       <label class="form-label text-xl font-bold">Price From</label>
-      <input type="number" name="priceFrom" placeholder="0" class="form-input" (input)="search.priceFrom = $any($event.target).value" />
+      <input type="number" name="priceFrom" placeholder="£0" class="form-input" (input)="search.priceFrom = $any($event.target).value" />
     </div>
     <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
       <label class="form-label text-xl font-bold">Price To</label>
-      <input type="number" name="priceTo" placeholder="5000" class="form-input" (input)="search.priceTo = $any($event.target).value" />
+      <input type="number" name="priceTo" placeholder="£5000" class="form-input" (input)="search.priceTo = $any($event.target).value" />
     </div>
     <div class="w-full flex justify-center">
       <button type="submit" class="search-button text-xl">Submit</button>
