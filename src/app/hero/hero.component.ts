@@ -7,6 +7,22 @@ import { Component } from '@angular/core';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
-export class HeroComponent {
 
+export class HeroComponent {
+  showSearch = false;
+  search = {
+    make: '',
+    model: '',
+    priceFrom: '',
+    priceTo: ''
+  };
+
+  getStarted(): void {
+    this.showSearch = true;
+  }
+
+  onSearch(): void {
+    console.log('Search:', this.search);
+    // Add your search logic here...
+  }
 }

@@ -1,4 +1,6 @@
-<section id="home" class="relative z-10 overflow-hidden pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]">
+<section id="home"
+  class="content-container relative z-10 overflow-hidden pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+  [class.hidden]="showSearch">
   <div class="container">
     <div class="flex flex-wrap -mx-4">
       <div class="w-full px-4">
@@ -7,11 +9,16 @@
             Landing Page
           </h1>
           <p class="mb-12 text-base leading-relaxed text-body-color sm:text-lg md:text-xl max-w-2xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
           </p>
           <div class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-            <button routerLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="inline-block bg-[#f4b53b] px-8 py-4 text-lg font-bold rounded-lg text-black duration-300 ease-in-out hover:bg-black/90 hover:text-white">
-             Click to get started!
+            <button (click)="getStarted()"
+              class="start-button inline-block bg-[#f4b53b] px-8 py-4 text-lg font-bold rounded-lg text-black duration-300 ease-in-out hover:bg-black/90 hover:text-white">
+              Click to get started!
             </button>
           </div>
         </div>
@@ -19,3 +26,28 @@
     </div>
   </div>
 </section>
+
+<div class="search-container" [hidden]="!showSearch">
+  <div class="text-5xl font-bold p-1 mb-6">Search</div>
+  <form (submit)="onSearch()" class="flex flex-wrap justify-center gap-4">
+    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
+      <label class="form-label text-xl font-bold">Make</label>
+      <input type="text" name="make" placeholder="Ford" class="form-input" required (input)="search.make = $any($event.target).value" />
+    </div>
+    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
+      <label class="form-label text-xl font-bold">Model</label>
+      <input type="text" name="model" placeholder="Fiesta" class="form-input" (input)="search.model = $any($event.target).value" />
+    </div>
+    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
+      <label class="form-label text-xl font-bold">Price From</label>
+      <input type="number" name="priceFrom" placeholder="0" class="form-input" (input)="search.priceFrom = $any($event.target).value" />
+    </div>
+    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
+      <label class="form-label text-xl font-bold">Price To</label>
+      <input type="number" name="priceTo" placeholder="5000" class="form-input" (input)="search.priceTo = $any($event.target).value" />
+    </div>
+    <div class="w-full flex justify-center">
+      <button type="submit" class="search-button text-xl">Submit</button>
+    </div>
+  </form>
+</div>
