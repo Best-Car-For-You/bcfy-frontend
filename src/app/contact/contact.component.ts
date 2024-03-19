@@ -9,6 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
+
 export class ContactComponent {
   
   messageForm: FormGroup;
@@ -21,15 +22,15 @@ export class ContactComponent {
       message: new FormControl('',[Validators.required, Validators.minLength(10)])
     });
   }
-  onSubmit() {
 
+  onSubmit() {
     const isFormValid = this.messageForm.valid;
     this.isFormSubmitted = true;
-    // Placeholder for submitting the form
     if (isFormValid) {
       alert('Your message has been sent successfully!');
     }
-    
+    this.messageForm.reset();
+    this.isFormSubmitted = false;
   }
 
 }
