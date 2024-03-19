@@ -8,29 +8,29 @@
       <div class="mb-6">
         <label for="name" class="block mb-2 text-white">Name</label>
         <input type="text"  class="form-control w-full py-2 px-4 rounded-md border-gray-300 focus:border-indigo-500 focus:outline-none" formControlName="name" placeholder="Your name" required>
-        <div *ngIf="messageForm.controls['name'].invalid && (messageForm.controls['name'].touched || messageForm.controls['name'].dirty || isFormSubmitted )">
-          <span class="text-red-500" *ngIf="messageForm.controls['name'].errors?.['required']">Name is required</span>
-          <span class="text-red-500" *ngIf="messageForm.controls['name'].errors?.['minlength']">Name's mininum length is 3 charaters</span>
+        <div class="text-red-500" *ngIf="messageForm.controls['name'].invalid && (messageForm.controls['name'].touched || messageForm.controls['name'].dirty || isFormSubmitted )">
+          <span *ngIf="messageForm.controls['name'].errors?.['required']">Name is required</span>
+          <span *ngIf="messageForm.controls['name'].errors?.['minlength']">Name's mininum length is 3 charaters</span>
         </div>
       </div>
       <div class="mb-6">
         <label for="email" class="block mb-2 text-white">Email</label>
         <input type="email"  class="form-control w-full py-2 px-4 rounded-md border-gray-300 focus:border-indigo-500 focus:outline-none" formControlName="email" placeholder="Your email" required>
-        <div *ngIf="messageForm.controls['email'].invalid && (messageForm.controls['email'].touched || messageForm.controls['email'].dirty || isFormSubmitted )">
-          <span class="text-red-500" *ngIf="messageForm.controls['email'].errors?.['required']">Email is required</span>
-          <span class="text-red-500" *ngIf="messageForm.controls['email'].errors?.['email']">Email is invalid</span>
+        <div class="text-red-500" *ngIf="messageForm.controls['email'].invalid && (messageForm.controls['email'].touched || messageForm.controls['email'].dirty || isFormSubmitted )">
+          <span *ngIf="messageForm.controls['email'].errors?.['required']">Email is required</span>
+          <span *ngIf="messageForm.controls['email'].errors?.['email']">Email is invalid</span>
         </div>
       </div>
       <div class="mb-6">
         <label for="message" class="block mb-2 text-white">Message</label>
         <textarea class="form-contol w-full py-2 px-4 rounded-md border-gray-300 focus:border-indigo-500 focus:outline-none" formControlName="message" rows="6" placeholder="Your message" required></textarea>
-        <div *ngIf="messageForm.controls['message'].invalid && (messageForm.controls['message'].touched || messageForm.controls['message'].dirty || isFormSubmitted )">
-          <span class="text-red-500" *ngIf="messageForm.controls['message'].errors?.['required']">Message is required</span>
-          <span class="text-red-500" *ngIf="messageForm.controls['message'].errors?.['minlength']">Message's mininum length is 10 charaters</span>
+        <div class="text-red-500" *ngIf="messageForm.controls['message'].invalid && (messageForm.controls['message'].touched || messageForm.controls['message'].dirty || isFormSubmitted )">
+          <span *ngIf="messageForm.controls['message'].errors?.['required']">Message is required</span>
+          <span *ngIf="messageForm.controls['message'].errors?.['minlength']">Message's mininum length is 10 charaters</span>
         </div>
       </div>
       <div class="text-center">
-        <button type="button" (click)="onSubmit()" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300">Send Message</button>
+        <button type="button" (click)="onSubmit()" class="bg-[#f4b53b] hover:bg-black/90 text-white font-semibold py-2 px-6 rounded-md transition duration-300">Send Message</button>
       </div>
     </form>
   </div>
