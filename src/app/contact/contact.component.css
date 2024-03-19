@@ -2,6 +2,14 @@
   background-color: #f4b53b;
 }
 
+.text-lg-3xl {
+  font-size: 3xl; /* Adjust as needed */
+}
+
+.text-lg {
+  font-size: 2xl; /* Adjust as needed */
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -16,7 +24,17 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.8);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 250px;
+
+  max-width: 600px;
+}
+
+@media (max-width: 600px) {
+  .contact-card {
+    max-width: 400px; /* Adjust the max-width as needed */
+  }
+  .text-lg {
+    font-size: xl; /* Smaller font size for smaller screens */
+  }
 }
 
 .form-input,
