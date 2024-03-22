@@ -16,3 +16,8 @@
 .menu-toggle .sr-only {
   display: none;
 }
+
+.scrolled-navbar {
+  background-color: #ffffffc9;
+  transition: background-color 0.3s ease;
+}
