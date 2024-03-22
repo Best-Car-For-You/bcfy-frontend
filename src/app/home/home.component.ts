@@ -7,12 +7,16 @@ import { HeaderComponent } from '../header/header.component';
 import { FeaturesComponent } from '../features/features.component';
 import { HelpComponent } from '../help/help.component';
 import { ContactComponent } from '../contact/contact.component';
+import { FooterComponent } from '../footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterOutlet, HeroComponent, RouterModule, HeaderComponent, FeaturesComponent, HelpComponent, ContactComponent, FontAwesomeModule],
+  imports: 
+    [
+      RouterOutlet, HeroComponent, RouterModule, HeaderComponent, FeaturesComponent, HelpComponent, ContactComponent, FooterComponent,  FontAwesomeModule
+    ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
