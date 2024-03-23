@@ -17,6 +17,11 @@ import { LoginComponent } from './login/login.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
-  title = 'bcfy-frontend';
+  showSearch: boolean = false;
+
+  getStarted(): void {
+    this.showSearch = true;
+  }
 }
