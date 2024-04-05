@@ -26,8 +26,8 @@ export class CognitoService {
     Amplify.configure({
       Auth: {
         region: 'eu-west-2',
-        userPoolId: 'eu-west-2_KlkzMdq1Q',
-        userPoolWebClientId: '6p5rp57a7oe2og0d47a4g3922q',
+        userPoolId: 'eu-west-2_rbKmYYzrD',
+        userPoolWebClientId: '79648ssmtusv4b27ss2dai86jk',
       }
     });
 
