@@ -39,14 +39,15 @@ export class CognitoService {
       username: user.email,
       password: user.password,
       attributes: {
-        email: user.email,
-        given_name: user.given_name,
-        family_name: user.family_name,
-        age: user.age.toString(),
-        city: user.city,
-        }
+        email: user.email, // Standard attribute
+        given_name: user.given_name, // Standard attribute
+        family_name: user.family_name, // Standard attribute
+        'custom:age': user.age.toString(), // Custom attribute
+        'custom:city': user.city, // Custom attribute
+      }
     });
-  }
+}
+
 
   public confirmSignUp(user: IUser): Promise<any> {
     return Auth.confirmSignUp(user.email, user.code);

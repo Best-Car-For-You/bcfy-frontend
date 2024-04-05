@@ -13,7 +13,7 @@ import { IUser, CognitoService } from '../cognito.service';
 })
 export class RegisterComponent {
   loading: boolean;
-  isConfirm: boolean;
+  isConfirm: boolean = false;
   user: IUser;
 
   constructor(
@@ -27,15 +27,14 @@ export class RegisterComponent {
 
   public signUp(): void {
     this.loading = true;
-    this.cognitoService.signUp(this.user)
-      .then(() => {
-        this.loading = false;
-        this.isConfirm = true;
-      })
-      .catch(() => {
-        this.loading = false;
-      });
-  }
+    this.cognitoService.signUp(this.user).then(() => {
+      this.loading = false;
+      this.isConfirm = true; // This line toggles the view to show the confirmation input
+    }).catch((error) => {
+      console.error('Sign up error:', error);
+      this.loading = false;
+    });
+  }  
 
   public confirmSignUp(): void {
     this.loading = true;
