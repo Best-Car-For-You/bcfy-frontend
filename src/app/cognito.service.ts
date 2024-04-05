@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import Amplify, { Auth } from 'aws-amplify';
+import  Amplify, {Auth} from 'aws-amplify';
 
-import { environment } from '../environments/environment';
+import { environments } from '../environments/environment';
 
 export interface IUser {
   email: string;
   password: string;
   showPassword: boolean;
   code: string;
-  name: string;
+  given_name: string;
+  family_name: string;
+  age: number;
+  city: string;
 }
 
 @Injectable({
@@ -21,7 +24,7 @@ export class CognitoService {
 
   constructor() {
     Amplify.configure({
-      Auth: environment.cognito,
+      Auth: environments
     });
 
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
@@ -31,15 +34,30 @@ export class CognitoService {
     return Auth.signUp({
       username: user.email,
       password: user.password,
+      options: {
+
+        userAttributes: {
+          email: user.email,
+          given_name: user.given_name,
+          family_name: user.family_name,
+          age: user.age, 
+          city: user.city,
+        }
     });
   }
 
   public confirmSignUp(user: IUser): Promise<any> {
-    return Auth.confirmSignUp(user.email, user.code);
+    return Auth.confirmSignUp({
+      username: user.email,
+      confirmationCode: user.code,
+    });
   }
 
   public signIn(user: IUser): Promise<any> {
-    return Auth.signIn(user.email, user.password)
+    return Auth.signIn({
+      username: user.email,
+      password: user.password,
+    })
     .then(() => {
       this.authenticationSubject.next(true);
     });
