@@ -9,62 +9,82 @@
             class="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-white">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
-                    Sign up for car and insurance recommendations
+                    {{
+                    !isConfirm
+                    ? "Sign up for car and insurance recommendations"
+                    : "Confirm Your Email"
+                    }}
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="#">
+                <form (ngSubmit)="!isConfirm ? signUp() : confirmSignUp()" class="space-y-4 md:space-y-6" action="#">
                     <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-white">Your
-                            email</label>
-                        <input type="email" name="email" id="email"
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="name@company.com" required="">
-                    </div>
-                    <div>
-                        <label for="password"
-                            class="block mb-2 text-sm font-medium text-white">Password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••"
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                            required="">
-                    </div>
-                    <div>
-                        <label for="age"
-                            class="block mb-2 text-sm font-medium text-white">Age</label>
-                        <input type="number" name="age" id="age" min="18"
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-                            required="">
-                    </div>
-                    <div>
-                        <label for="location" class="block mb-2 text-sm font-medium text-white">Location (City, State)</label>
-                        <input type="text" name="location" id="location" class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white" placeholder="e.g., Leeds, West Yorkshire" required="">
-                    </div>                    
-                    <div>
-                        <label for="salary" class="block mb-2 text-sm font-medium text-white">Annual
-                            Salary (£)</label>
-                        <input type="number" name="salary" id="salary"
-                            class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-                            required="">
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="terms" type="checkbox"
-                                    class="w-4 h-4 border rounded bg
-                              -gray-50 focus:ring-3 focus:ring-primary-300 bg-gray-700 border-gray-600 focus:ring-primary-600 ring-offset-gray-800"
-                                    required="">
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="terms" class="text-gray-300">I agree to the terms and
-                                    conditions</label>
-                            </div>
+                        <div>
+                            <label for="name" class="block mb-2 mt-4 text-sm font-medium text-white">First Name</label>
+                            <input type="text" [(ngModel)]="(user.given_name)" name="name" id="given_name"
+                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="name@company.com" required="" />
                         </div>
+                        <div>
+                            <label for="surname" class="block mb-2 mt-4 text-sm font-medium text-white">Last Name</label>
+                            <input type="text" [(ngModel)]="(user.family_name)" name="surname" id="family_name"
+                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="name@company.com" required="" />
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 mt-4 text-sm font-medium text-white">Your email</label>
+                            <input type="email" [(ngModel)]="(user.email)" name="email" id="email"
+                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="name@company.com" required="" />
+                        </div>
+                        <div>
+                            <label for="password" class="block mb-2 mt-4 text-sm font-medium text-white">Password</label>
+                            <input type="password" [(ngModel)]="(user.password)" name="password" id="password"
+                                placeholder="••••••••"
+                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                                required="" />
+                        </div>
+                        <div>
+                            <label for="age" class="block mb-2 mt-4 text-sm font-medium text-white">Age</label>
+                            <input type="text" [(ngModel)]="(user.age)" name="age" id="age" min="18"
+                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
+                                required="" />
+                        </div>
+                        <div>
+                            <label for="location" class="block mb-2 mt-4 text-sm font-medium text-white">Location (City)</label>
+                            <input type="text" [(ngModel)]="(user.city)" name="city" id="city"
+                                class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
+                                placeholder="e.g., Leeds, West Yorkshire" required="" />
+                        </div>
+                        <!-- <div class="flex items-center justify-between">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="terms" type="checkbox" (ngModel)="user.agreeToTerms" name="terms"
+                                        class="w-4 h-4 border rounded bg -gray-50 focus:ring-3 focus:ring-primary-300 bg-gray-700 border-gray-600 focus:ring-primary-600 ring-offset-gray-800"
+                                        required="" />
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="terms" class="text-gray-300">I agree to the terms and conditions</label>
+                                </div>
+                            </div>
+                        </div> -->
+                        <button *ngIf="!isConfirm" type="submit"
+                            class="w-full mt-8 bg-yellow-400 hover:bg-yellow-600 font-bold text-black rounded-lg px-5 py-2.5">
+                            Sign Up
+                        </button>
+                        <p class="text-sm font-light text-gray-400 mt-2">
+                            Already have an account?
+                            <a href="/login" class="font-medium text-primary-600 hover:underline">Sign in</a>
+                        </p>
                     </div>
-                    <button type="submit"
-                        class="w-full text-black bg-yellow-400 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-primary-700 focus:ring-primary-800">Sign
-                        up</button>
-                    <p class="text-sm font-light text-gray-400">
-                        Already have an account? <a href="#"
-                            class="font-medium text-primary-600 hover:underline text-primary-500">Sign in</a>
-                    </p>
+                    <div *ngIf="isConfirm">
+                        <label for="confirmationCode" class="block mb-2 mt-4 text-sm font-medium text-white">Code:</label>
+                        <input type="text" [(ngModel)]="(user.code)" name="confirmationCode" id="confirmationCode"
+                            class="border rounded-lg block w-full p-2.5 mb-3 bg-gray-700 placeholder-gray-400 text-white"
+                            placeholder="Enter your code" required />
+                        <button type="submit"
+                            class="w-full bg-yellow-400 hover:bg-yellow-600 text-black rounded-lg px-5 py-2.5">
+                            Confirm
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
