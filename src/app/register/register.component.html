@@ -1,14 +1,14 @@
-<section class="registerbg">
+<section class="registerbg" >
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a routerLink="/register"
-            class="bg-yellow-400 p-2 rounded-lg flex items-center mb-6 text-2xl font-semibold text-gray-800">
+        <a routerLink="/register" class=" bg-yellow-400 p-2 rounded-lg flex items-center mb-6 text-2xl font-semibold text-gray-800">
             <div class="logo-bg"></div>
             <span class="self-center text-2xl font-bold whitespace-nowrap">BCFY</span>
         </a>
 
-        <div class="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-white">
+        <div
+            class="w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-white">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold text-white">
+                <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
                     {{
                     !isConfirm
                     ? "Sign up for car and insurance recommendations"
@@ -18,39 +18,38 @@
                 <form (ngSubmit)="!isConfirm ? signUp() : confirmSignUp()" class="space-y-4 md:space-y-6" action="#">
                     <div>
                         <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-white">First Name</label>
+                            <label for="name" class="block mb-2 mt-4 text-sm font-medium text-white">First Name</label>
                             <input type="text" [(ngModel)]="(user.given_name)" name="name" id="given_name"
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="name@company.com" required="" />
                         </div>
                         <div>
-                            <label for="surname" class="block mb-2 text-sm font-medium text-white">Last Name</label>
+                            <label for="surname" class="block mb-2 mt-4 text-sm font-medium text-white">Last Name</label>
                             <input type="text" [(ngModel)]="(user.family_name)" name="surname" id="family_name"
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="name@company.com" required="" />
                         </div>
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
+                            <label for="email" class="block mb-2 mt-4 text-sm font-medium text-white">Your email</label>
                             <input type="email" [(ngModel)]="(user.email)" name="email" id="email"
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="name@company.com" required="" />
                         </div>
                         <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
+                            <label for="password" class="block mb-2 mt-4 text-sm font-medium text-white">Password</label>
                             <input type="password" [(ngModel)]="(user.password)" name="password" id="password"
                                 placeholder="••••••••"
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                                 required="" />
                         </div>
                         <div>
-                            <label for="age" class="block mb-2 text-sm font-medium text-white">Age</label>
+                            <label for="age" class="block mb-2 mt-4 text-sm font-medium text-white">Age</label>
                             <input type="text" [(ngModel)]="(user.age)" name="age" id="age" min="18"
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
                                 required="" />
                         </div>
                         <div>
-                            <label for="location" class="block mb-2 text-sm font-medium text-white">Location (City,
-                                State)</label>
+                            <label for="location" class="block mb-2 mt-4 text-sm font-medium text-white">Location (City)</label>
                             <input type="text" [(ngModel)]="(user.city)" name="city" id="city"
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
                                 placeholder="e.g., Leeds, West Yorkshire" required="" />
@@ -68,18 +67,18 @@
                             </div>
                         </div> -->
                         <button *ngIf="!isConfirm" type="submit"
-                            class="w-full bg-yellow-400 hover:bg-yellow-600 text-black rounded-lg px-5 py-2.5">
-                            Sign up
+                            class="w-full mt-8 bg-yellow-400 hover:bg-yellow-600 font-bold text-black rounded-lg px-5 py-2.5">
+                            Sign Up
                         </button>
-                        <p class="text-sm font-light text-gray-400">
+                        <p class="text-sm font-light text-gray-400 mt-2">
                             Already have an account?
                             <a href="/login" class="font-medium text-primary-600 hover:underline">Sign in</a>
                         </p>
                     </div>
                     <div *ngIf="isConfirm">
-                        <label for="confirmationCode" class="block mb-2 text-sm font-medium text-white">Code:</label>
+                        <label for="confirmationCode" class="block mb-2 mt-4 text-sm font-medium text-white">Code:</label>
                         <input type="text" [(ngModel)]="(user.code)" name="confirmationCode" id="confirmationCode"
-                            class="border rounded-lg block w-full p-2.5 bg-gray-700 placeholder-gray-400 text-white"
+                            class="border rounded-lg block w-full p-2.5 mb-3 bg-gray-700 placeholder-gray-400 text-white"
                             placeholder="Enter your code" required />
                         <button type="submit"
                             class="w-full bg-yellow-400 hover:bg-yellow-600 text-black rounded-lg px-5 py-2.5">
