@@ -24,7 +24,7 @@ export class CognitoService {
 
   constructor() {
     Amplify.configure({
-      Auth: environments
+      Auth: environments.cognito,
     });
 
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
@@ -34,30 +34,22 @@ export class CognitoService {
     return Auth.signUp({
       username: user.email,
       password: user.password,
-      options: {
-
-        userAttributes: {
-          email: user.email,
-          given_name: user.given_name,
-          family_name: user.family_name,
-          age: user.age, 
-          city: user.city,
+      attributes: {
+        email: user.email,
+        given_name: user.given_name,
+        family_name: user.family_name,
+        age: user.age.toString(),
+        city: user.city,
         }
     });
   }
 
   public confirmSignUp(user: IUser): Promise<any> {
-    return Auth.confirmSignUp({
-      username: user.email,
-      confirmationCode: user.code,
-    });
+    return Auth.confirmSignUp(user.email, user.code);
   }
 
   public signIn(user: IUser): Promise<any> {
-    return Auth.signIn({
-      username: user.email,
-      password: user.password,
-    })
+    return Auth.signIn(user.email, user.password)
     .then(() => {
       this.authenticationSubject.next(true);
     });
