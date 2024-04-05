@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import  Amplify, {Auth} from 'aws-amplify';
 
-import { environments } from '../environments/environment';
+// import { environment } from '../environments/environment';
 
 export interface IUser {
   email: string;
@@ -24,7 +24,11 @@ export class CognitoService {
 
   constructor() {
     Amplify.configure({
-      Auth: environments.cognito,
+      Auth: {
+        region: 'eu-west-2',
+        userPoolId: 'eu-west-2_KlkzMdq1Q',
+        userPoolWebClientId: '6p5rp57a7oe2og0d47a4g3922q',
+      }
     });
 
     this.authenticationSubject = new BehaviorSubject<boolean>(false);
