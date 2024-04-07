@@ -32,18 +32,4 @@ export class LoginComponent {
       this.loading = false;
     });
   }
-
-  // username: string;
-  // password: string;
-
-  // constructor() {
-  //   this.username = '';
-  //   this.password = '';
-  // }
-
-  // login() {
-  //   // Perform login logic here
-  //   console.log('Username:', this.username);
-  //   console.log('Password:', this.password);
-  // }
 }

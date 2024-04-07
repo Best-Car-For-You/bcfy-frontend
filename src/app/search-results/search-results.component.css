@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('assets/bcfybg.jpg');
+    background-image: url('assets/bcfyg.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -43,12 +43,23 @@
     bottom: -10px;
 }
 
+.search-sidebar {
+    background-color: #f4b53b;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.705);
+    max-width: 250px;
+    margin: 2rem auto;
+    position: absolute;
+    left: 1em;
+    top: 10%;
+}
+
 .search-container {
     background-color: #f4b53b;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.705);
-    max-width: 800px;
     margin: 2rem auto;
 }
 
@@ -103,7 +114,3 @@
 .hidden {
     display: none;
 }
-
-/* .content-container {}
-
-.search-container {} */

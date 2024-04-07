@@ -48,7 +48,6 @@ export class CognitoService {
     });
 }
 
-
   public confirmSignUp(user: IUser): Promise<any> {
     return Auth.confirmSignUp(user.email, user.code);
   }
