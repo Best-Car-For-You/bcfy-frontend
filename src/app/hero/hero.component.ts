@@ -1,34 +1,31 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
-
-interface SearchResult {
-  id: string;
-  make: string;
-  model: string;
-  year: string;
-  fuelType: string;
-  minPrice: string;
-  maxPrice: string;
-  transmission: string;
-}
+import { Car, CarSearchQuery, CarsService } from '../cars.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
 
 export class HeroComponent {
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private el: ElementRef, private renderer: Renderer2, private carsService: CarsService) {}
 
   showSearch = false;
-  search = {
+  search: CarSearchQuery = {
     make: '',
     model: '',
-    priceFrom: '',
-    priceTo: ''
+    minPrice: 0,
+    maxPrice: 0
   };
+  searchResults: Car[] = [];
+
+
+  ngOnInit(): void {
+  }
 
   getStarted(): void {
     this.showSearch = true;
@@ -36,20 +33,10 @@ export class HeroComponent {
 
   onSearch(): void {
     console.log('Search:', this.search);
-    // Add your search logic here...
-  }
-  displayResults(results: SearchResult[]): void { // Use the SearchResult interface here
-    const container = this.el.nativeElement.querySelector('.results-container');
-    // Clear previous results
-    container.innerHTML = '';
-    results.forEach((result: SearchResult) => { // Now, `result` is typed
-      const card = this.renderer.createElement('div');
-      this.renderer.addClass(card, 'result-card');
-      this.renderer.setProperty(card, 'innerHTML', `
-        <div class="font-bold text-xl mb-2">${result.make} ${result.model}</div>
-        <!-- Add more details here -->
-      `);
-      this.renderer.appendChild(container, card);
+    this.carsService.searchCars(this.search).subscribe((results: Car[]) => {
+      console.log('Results:', results)
+      this.searchResults = results;
     });
   }
+  
 }
