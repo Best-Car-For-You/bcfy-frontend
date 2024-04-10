@@ -1,97 +1,123 @@
 <app-header></app-header>
-<section
-  id="SearchResults"
-  class="bg-gray-50"
->
-  <div class="container">
-    <div class="search-sidebar">
-        <div class="text-5xl font-bold p-1 mb-6">Search</div>
-        <form (submit)="onSearch()" class="flex flex-wrap justify-center gap-4">
-          <div class="flex flex-col flex-1">
-            <label class="form-label text-xl font-bold">Make</label>
-            <input
-              type="text"
-              name="make"
-              placeholder="Ford"
-              class="form-input"
-              required
-              [(ngModel)]="search.make"
-            />
-          </div>
-          <div class="flex flex-col flex-1">
-            <label class="form-label text-xl font-bold">Model</label>
-            <input
-              type="text"
-              name="model"
-              placeholder="Fiesta"
-              class="form-input"
-              [(ngModel)]="search.model"
-            />
-          </div>
-          <div class="flex flex-col flex-1 ">
-            <label class="form-label text-xl font-bold">Price From</label>
-            <input
-              type="number"
-              name="minPrice"
-              placeholder="£0"
-              class="form-input"
-              [(ngModel)]="search.minPrice"
-            />
-          </div>
-          <div class="flex flex-col flex-1 ">
-            <label class="form-label text-xl font-bold">Price To</label>
-            <input
-              type="number"
-              name="maxPrice"
-              placeholder="£5000"
-              class="form-input"
-              [(ngModel)]="search.maxPrice"
-            />
-          </div>
-          <div class="w-full flex justify-center">
-            <button type="submit" class="search-button text-xl">Submit</button>
-          </div>
-        </form>
-      </div>
-  </div>
-  <div class="search-container">
-    <div class="text-5xl font-bold p-1 mb-6">Results:</div>
-    <div *ngIf="searchCars && searchCars.length > 0" class="mt-10">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            *ngFor="let result of searchCars"
-            class="bg-white overflow-hidden shadow-lg rounded-lg"
+<section id="SearchResults" class="flex flex-row">
+  <div
+    id="Main"
+    class="transform xl:translate-x-0 ease-in-out transition duration-500 flex flex-col justify-start items-start h-full w-full sm:w-64 bg-gray-900"
+  >
+    <div class="flex justify-start items-center p-6 space-x-3">
+      <p class="text-3xl font-bold leading-6 text-white">Search Cars</p>
+    </div>
+    <div class="px-6 py-4 flex flex-col justify-start items-start">
+      <form (submit)="onSearch()" class="flex flex-col space-y-4 w-full">
+        <div>
+          <label class="form-label text-lg font-semibold text-white"
+            >Make</label
           >
-            <div class="px-6 py-4">
-              <div class="font-bold text-xl mb-2">
-                {{ result.make }} {{ result.model }}
-              </div>
+          <input
+            type="text"
+            name="make"
+            placeholder="Ford"
+            class="form-input"
+            required
+            [(ngModel)]="search.make"
+          />
+        </div>
+        <div>
+          <label class="form-label text-lg font-semibold text-white"
+            >Model</label
+          >
+          <input
+            type="text"
+            name="model"
+            placeholder="Fiesta"
+            class="form-input"
+            [(ngModel)]="search.model"
+          />
+        </div>
+        <div>
+          <label class="form-label text-lg font-semibold text-white"
+            >Price From</label
+          >
+          <select
+            name="minPrice"
+            class="form-input w-full text-black"
+            [(ngModel)]="search.minPrice"
+          >
+            <option value="0">£0</option>
+            <option value="5000">£5000</option>
+            <option value="10000">£10000</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label text-lg font-semibold text-white"
+            >Price To</label
+          >
+          <select
+            name="maxPrice"
+            class="form-input w-full text-black"
+            [(ngModel)]="search.maxPrice"
+          >
+            <option value="5000">£5000</option>
+            <option value="10000">£10000</option>
+            <option value="15000">£15000</option>
+          </select>
+        </div>
+        <div class="w-full flex justify-center">
+          <button
+            type="submit"
+            class="search-button px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-700 transition-colors"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <div class="text-4xl font-bold p-1 mb-6">Results:</div>
+    <div *ngIf="searchCars && searchCars.length > 0" class="mt-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          *ngFor="let result of searchCars"
+          class="bg-white overflow-hidden shadow-lg rounded-lg"
+        >
+          <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">
+              {{ result.make }} {{ result.model }}
+            </div>
+            <img
+              src="https://bcfy-bucket.s3.eu-west-2.amazonaws.com/{{
+                result.make.toLowerCase()
+              }}-{{ result.model.toLowerCase() }}-{{ result.year }}.png"
+              alt="{{ result.model }}"
+              class="w-full h-48 bg-cover"
+            />
+            <p class="text-gray-700 text-base mt-4">
+              Year: {{ result.year }}<br />
+              Price: £{{ result.minPrice }} - £{{ result.maxPrice }}<br />
+              Fuel Type: {{ result.fuelType }}<br />
+
               <img
-                src="path/to/image/{{ result.id }}"
-                alt="{{ result.model }}"
-                class="w-full h-48 bg-cover"
+                src="/assets/manual-transmission-icon.svg"
+                alt="Manual Transmission Icon"
+                class=""
               />
-              <p class="text-gray-700 text-base mt-4">
-                Year: {{ result.year }}<br />
-                Price: £{{ result.minPrice }} - £{{ result.maxPrice }}<br />
-                Fuel Type: {{ result.fuelType }}<br />
-                Transmission: {{ result.transmission }}
-              </p>
-            </div>
-            <div class="px-6 pt-4 pb-2">
-              <span
-                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                >#{{ result.fuelType }}</span
-              >
-              <span
-                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                >#{{ result.transmission }}</span
-              >
-            </div>
+              Transmission: {{ result.transmission }}
+            </p>
+          </div>
+          <div class="px-6 pt-4 pb-2">
+            <span
+              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+              >#{{ result.fuelType }}</span
+            >
+            <span
+              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+              >#{{ result.transmission }}</span
+            >
           </div>
         </div>
       </div>
+    </div>
   </div>
 </section>
-
-

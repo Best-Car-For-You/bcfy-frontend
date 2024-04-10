@@ -13,8 +13,7 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './search-results.component.css'
 })
 export class SearchResultsComponent {
-  searchCars: Car[] = [];
-
+  searchCars: Car[] = []
   showSearch = false;
   search: CarSearchQuery = {
     make: '',
@@ -24,6 +23,11 @@ export class SearchResultsComponent {
   };
 
   constructor(private activatedRoute: ActivatedRoute, private carsService: CarsService, private router: Router) {}
+
+  getCarImageUrl(car: Car): string {
+    // https://bcfy-bucket.s3.eu-west-2.amazonaws.com/toyota-yaris-2006.png
+    return `https://bcfy-bucket.s3.eu-west-2.amazonaws.com/${car.make}-${car.model}-${car.year}.png`;
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
