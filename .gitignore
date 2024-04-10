@@ -2,8 +2,9 @@
 
 # Environments
 /.env
-/src/environments/environment.ts
-/src/app/cognito.service.ts
+/src/environments/environment.*.ts
+!/src/environments/environment.ts
+!/src/environments/environment.model.ts
 
 # Compiled output
 /dist
