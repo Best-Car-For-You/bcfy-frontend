@@ -6,3 +6,6 @@ export interface Environment {
     userPoolWebClientId: string;
   };
 }
+
+
+// Path: src/environments/environment.model.ts

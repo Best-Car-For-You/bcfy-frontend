@@ -2,9 +2,10 @@
 
 # Environments
 /.env
+!/src/environments/environment.model.ts
 /src/environments/environment.*.ts
 !/src/environments/environment.ts
-!/src/environments/environment.model.ts
+
 
 # Compiled output
 /dist
