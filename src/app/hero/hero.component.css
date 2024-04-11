@@ -14,8 +14,26 @@
     justify-content: center;
 }
 
+@font-face {
+    font-family: 'Ritts';
+    src: url(./assets/Ritts.ttf);
+}
+
+@font-face {
+    font-family: 'Gothic';
+    src: url(./assets/NeoGeoVAR-Regular.ttf);
+}
+
+h1 {
+    font-family: 'Ritts';
+}
+
+h2, p {
+    font-family: 'Gothic';
+}
+
 .text-container {
-    background-color: rgba(255, 255, 255, 0.747);
+    background-color: rgba(255, 255, 255, 0.878);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
