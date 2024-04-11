@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { HeroComponent } from './hero/hero.component';

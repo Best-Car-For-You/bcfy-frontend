@@ -18,6 +18,12 @@
 }
 
 .scrolled-navbar {
-  background-color: #ffffffc9;
+  background-color: #ffffff;
   transition: background-color 0.3s ease;
+}
+
+.manual-trans {
+  width: 30px;
+  height: 30px;
+  background-image: url('./assets/manual-transmission-icon.svg');
 }

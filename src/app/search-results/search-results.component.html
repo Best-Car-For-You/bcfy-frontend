@@ -2,7 +2,7 @@
 <section id="SearchResults" class="flex flex-row">
   <div
     id="Main"
-    class="transform xl:translate-x-0 ease-in-out transition duration-500 flex flex-col justify-start items-start h-full w-full sm:w-64 bg-gray-900"
+    class="transform xl:translate-x-0 ease-in-out transition duration-500 flex flex-col justify-start h-full w-full sm:w-64 bg-gray-900"
   >
     <div class="flex justify-start items-center p-6 space-x-3">
       <p class="text-3xl font-bold leading-6 text-white">Search Cars</p>
@@ -57,16 +57,22 @@
             class="form-input w-full text-black"
             [(ngModel)]="search.maxPrice"
           >
+            <option value="0">£0</option>
             <option value="5000">£5000</option>
             <option value="10000">£10000</option>
             <option value="15000">£15000</option>
+            <option value="20000">£20000</option>
+            <option value="50000">£50000</option>
+            <option value="100000">£100000</option>
+            <option value="500000">£500000 - You're joking right?</option>
+            <option value="1000000">£1000000 - Eat Dick</option>
           </select>
         </div>
-        <div class="w-full flex justify-center">
+        <div class="w-full flex justify-center pt-8">
           <button
             type="submit"
-            class="search-button px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-700 transition-colors"
-          >
+            class="search-button px-5 py-4 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-700 transition-colors"
+          >      
             Submit
           </button>
         </div>
@@ -77,47 +83,56 @@
   <div class="search-container">
     <div class="text-4xl font-bold p-1 mb-6">Results:</div>
     <div *ngIf="searchCars && searchCars.length > 0" class="mt-10">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card-container flex flex-col">
         <div
           *ngFor="let result of searchCars"
-          class="bg-white overflow-hidden shadow-lg rounded-lg"
+          class="card overflow-hidden shadow-lg rounded-lg my-2"
         >
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">
-              {{ result.make }} {{ result.model }}
-            </div>
-            <img
-              src="https://bcfy-bucket.s3.eu-west-2.amazonaws.com/{{
-                result.make.toLowerCase()
-              }}-{{ result.model.toLowerCase() }}-{{ result.year }}.png"
-              alt="{{ result.model }}"
-              class="w-full h-48 bg-cover"
-            />
-            <p class="text-gray-700 text-base mt-4">
-              Year: {{ result.year }}<br />
-              Price: £{{ result.minPrice }} - £{{ result.maxPrice }}<br />
-              Fuel Type: {{ result.fuelType }}<br />
-
+          <div class="flex p-4">
+            <div class="card-image px-2">
               <img
-                src="/assets/manual-transmission-icon.svg"
-                alt="Manual Transmission Icon"
-                class=""
+                src="https://bcfy-bucket.s3.eu-west-2.amazonaws.com/{{
+                  result.make.toLowerCase()
+                }}-{{ result.model.toLowerCase() }}-{{ result.year }}.png"
+                alt="{{ result.model }}"
+                class="w-full h-48 bg-cover"
               />
-              Transmission: {{ result.transmission }}
-            </p>
-          </div>
-          <div class="px-6 pt-4 pb-2">
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-              >#{{ result.fuelType }}</span
-            >
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-              >#{{ result.transmission }}</span
-            >
+            </div>
+            <div class="car-details">
+              <h2 class="text-2xl font-bold text-gray-800">
+                {{ result.make }} {{ result.model }} {{ result.year }}
+              </h2>
+              <h5>
+                <span class="text-gray-900 font-semibold">Price:</span> £{{
+                  result.minPrice
+                }}
+                - £{{ result.maxPrice }}
+              </h5>
+              <!-- <div class="trans-icon"></div> -->
+              <div class="result-container">
+                <div class="result-item">
+                  <a class="fuel-icon" size="20"></a>
+                  <a class="result-field">{{ result.fuelType }}</a>
+                </div>
+                <div class="result-item">
+                  <a class="trans-icon" size="40"></a>
+                  <a class="result-field">{{ result.transmission }}</a>
+                </div>
+
+                <!-- <div class="trans-icon"></div>{{ result.transmission }} -->
+                <!-- <span class="text-gray-900 font-semibold"> Fuel Type:</span>
+                {{ result.fuelType }}<br />
+                <span class="text-gray-900 font-semibold"> Transmission:</span> {{ result.transmission }}
+                <br /> -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div *ngIf="searchCars && searchCars.length === 0" class="mt-10">
+      <div class="text-2xl font-bold text-gray-800">No results found</div>
     </div>
   </div>
 </section>

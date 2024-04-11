@@ -25,7 +25,6 @@ export class SearchResultsComponent {
   constructor(private activatedRoute: ActivatedRoute, private carsService: CarsService, private router: Router) {}
 
   getCarImageUrl(car: Car): string {
-    // https://bcfy-bucket.s3.eu-west-2.amazonaws.com/toyota-yaris-2006.png
     return `https://bcfy-bucket.s3.eu-west-2.amazonaws.com/${car.make}-${car.model}-${car.year}.png`;
   }
 
@@ -43,7 +42,7 @@ export class SearchResultsComponent {
         minPrice: parseInt(params['minPrice']), 
         maxPrice: parseInt(params['maxPrice'])
        }
-      
+      this.search = query;
       this.carsService.searchCars(query).subscribe((results: Car[]) => {
         this.searchCars = results;
       });
@@ -54,12 +53,16 @@ export class SearchResultsComponent {
     return !params.make || !params.model || !params.minPrice || !params.maxPrice;
   }
 
-  onSearch(): void {
+  onSearch(event?: Event): void {
+    if (event) {
+      event.preventDefault();
+    }
     console.log('Search:', this.search);
     this.carsService.searchCars(this.search).subscribe((results: Car[]) => {
-      console.log('Results:', results)
+      console.log('Results:', results);
       this.searchCars = results;
     });
   }
+  
 
 }
