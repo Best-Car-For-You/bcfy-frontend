@@ -1,35 +1,26 @@
-<section
-  id="home"
+<section id="home"
   class="content-container relative z-10 overflow-hidden pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
-  [class.hidden]="showSearch"
->
+  [class.hidden]="showSearch">
   <div class="container">
     <div class="flex flex-wrap -mx-4">
       <div class="w-full px-4">
         <div class="text-container mx-auto max-w-[800px] text-center">
-          <h1
-            class="title mb-5 text-2xl font-bold leading-tight text-black sm:text-4xl md:text-5xl"
-          >
-            Landing Page
+          <h1 class="title mb-5 text-2xl font-bold leading-tight text-black sm:text-4xl md:text-5xl">
+            Best Car For You
           </h1>
-          <p
-            class="mb-12 text-base leading-relaxed text-body-color sm:text-lg md:text-xl max-w-2xl"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+          <h2 class="title mb-5 text-lg font-bold leading-tight text-black sm:text-2xl md:text-3xl">
+            Your Budget-Friendly Car Finder
+          </h2>
+          <p class="mb-5 text-base leading-relaxed text-body-color sm:text-lg md:text-xl max-w-3xl">
+            Looking for a car that fits your budget? Introducing <strong>BCFY</strong>—your go-to car buying assistant. Here to
+            help you find affordable cars that match what you need, without all the fuss. Whether you're a student
+            gearing up for your first car or an early career professional eyeing a wallet-friendly upgrade,
+            <strong>BCFY</strong> makes your car search easy. Just tell us what you're looking for and we'll handle the
+            rest, connecting you with great cars at great prices.
           </p>
-          <div
-            class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
-          >
-            <button
-              (click)="getStarted()"
-              class="start-button inline-block bg-[#f4b53b] px-8 py-4 text-lg font-bold rounded-lg text-black duration-300 ease-in-out hover:bg-black/90 hover:text-white"
-            >
+          <div class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+            <button (click)="getStarted()"
+              class="start-button inline-block bg-[#f4b53b] px-8 py-4 text-lg font-bold rounded-lg text-black duration-300 ease-in-out hover:bg-black/90 hover:text-white">
               Click to get started!
             </button>
           </div>
@@ -44,44 +35,19 @@
   <form (submit)="onSearch()" class="flex flex-wrap justify-center gap-4">
     <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
       <label class="form-label text-xl font-bold">Make</label>
-      <input
-        type="text"
-        name="make"
-        placeholder="Ford"
-        class="form-input"
-        required
-        [(ngModel)]="search.make"
-      />
+      <input type="text" name="make" placeholder="Ford" class="form-input" required [(ngModel)]="search.make" />
     </div>
     <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
       <label class="form-label text-xl font-bold">Model</label>
-      <input
-        type="text"
-        name="model"
-        placeholder="Fiesta"
-        class="form-input"
-        [(ngModel)]="search.model"
-      />
+      <input type="text" name="model" placeholder="Fiesta" class="form-input" [(ngModel)]="search.model" />
     </div>
     <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
       <label class="form-label text-xl font-bold">Price From</label>
-      <input
-        type="number"
-        name="minPrice"
-        placeholder="£0"
-        class="form-input"
-        [(ngModel)]="search.minPrice"
-      />
+      <input type="number" name="minPrice" placeholder="£0" class="form-input" [(ngModel)]="search.minPrice" />
     </div>
     <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
       <label class="form-label text-xl font-bold">Price To</label>
-      <input
-        type="number"
-        name="maxPrice"
-        placeholder="£5000"
-        class="form-input"
-        [(ngModel)]="search.maxPrice"
-      />
+      <input type="number" name="maxPrice" placeholder="£5000" class="form-input" [(ngModel)]="search.maxPrice" />
     </div>
     <div class="w-full flex justify-center">
       <button type="submit" class="search-button text-xl">Submit</button>
