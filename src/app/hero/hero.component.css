@@ -15,21 +15,12 @@
 }
 
 @font-face {
-    font-family: 'Ritts';
-    src: url(./assets/Ritts.ttf);
-}
-
-@font-face {
-    font-family: 'Gothic';
+    font-family: 'NeoGeo';
     src: url(./assets/NeoGeoVAR-Regular.ttf);
 }
 
-h1 {
-    font-family: 'Ritts';
-}
-
-h2, p {
-    font-family: 'Gothic';
+h1, h2, p {
+    font-family: 'NeoGeo';
 }
 
 .text-container {
