@@ -54,13 +54,13 @@
         <div *ngFor="let result of searchCars" class="card overflow-hidden shadow-lg rounded-lg my-2">
           <div class="flex card-content">
             <div class="flex p-4">
-              <div class="card-image px-2">
+              <div class="card-image pt-5 px-6">
                 <img src="https://bcfy-bucket.s3.eu-west-2.amazonaws.com/{{
                   result.make.toLowerCase()
                 }}-{{ result.model.toLowerCase() }}-{{ result.year }}.png" alt="{{ result.model }}"
                   class="w-full h-48 bg-cover" />
               </div>
-              <div class="car-details">
+              <div class="car-details pt-5 items-center">
                 <a class="text-4xl font-bold text-gray-800">
                   {{ result.make }} {{ result.model }} {{ result.year }}
                 </a>
@@ -93,65 +93,65 @@
           </div>
           <div class="expanded-details">
             <div class="result-container flex flex-col pl-4">
-              <a class="text-4xl font-extrabold">
+              <a class="text-4xl expanded-desc font-extrabold min-w-56">
                 {{ result.make }} {{ result.model }}
               </a>
               <div class="car-year-version flex items-center gap-2">
-                <a class="text-2xl font-bold">
+                <a class="text-lg expanded-desc font-bold">
                   - {{ result.year }}
                 </a>
               </div>
               <div class="car-year-version flex items-center gap-2 pb-4 text-gray-500">
-                <a class="text-lg font-bold">
+                <a class="text-md expanded-desc font-bold">
                   {{ result.version }}
                 </a>
               </div>
               <div class="car-details-item flex items-center gap-2">
-                <a class="car-door-icon"></a>
-                <a class="text-xl font-semibold">
+                <a class="car-door-icon expanded-desc"></a>
+                <a class="text-xl expanded-desc font-semibold">
                   {{ result.numberOfDoors }} DR
                 </a>
               </div>
               <div class="car-details-item flex items-center gap-2">
-                <a class="car-seat-icon"></a>
-                <a class="text-xl font-semibold">
+                <a class="car-seat-icon expanded-desc"></a>
+                <a class="text-xl expanded-desc font-semibold">
                   {{ result.numberOfSeats }} Seats
                 </a>
               </div>
               <!-- <div class="car-details-item flex items-center gap-2">
-                <a class="text-md font-semibold">
+                <a class="text-md expanded-desc font-semibold">
                   Insurance Group: {{ result.insuranceGroup }}
                 </a>
               </div> -->
             </div>
-            <div class="result-container">
+            <div class="result-container pl-11">
               <div class="result-item">
-                <a class="fuel-icon"></a>
-                <span class="result-field ml-2 text-xl font-semibold">{{ result.fuelType }}</span>
+                <a class="fuel-icon expanded-desc"></a>
+                <span class="result-field ml-2 text-xl expanded-desc font-semibold">{{ result.fuelType }}</span>
               </div>
               <div class="result-item">
-                <a class="trans-icon"></a>
-                <span class="result-field ml-2 text-xl font-semibold">{{ result.transmission }}</span>
+                <a class="trans-icon expanded-desc"></a>
+                <span class="result-field ml-2 text-xl expanded-desc font-semibold">{{ result.transmission }}</span>
               </div>
               <div class="result-item">
-                <a class="engine-icon"></a>
-                <span class="result-field ml-2 text-xl font-semibold">{{ result.engineSize }}</span>
+                <a class="engine-icon expanded-desc"></a>
+                <span class="result-field ml-2 text-xl expanded-desc font-semibold">{{ result.engineSize }}</span>
               </div>
               <div class="result-item-shift">
-                <a class="hovercar-icon"></a>
-                <span class="result-field ml-2 text-xl font-semibold">{{ result.bodyType }}</span>
+                <a class="hovercar-icon expanded-desc"></a>
+                <span class="result-field ml-2 text-xl expanded-desc font-semibold">{{ result.bodyType }}</span>
               </div>
             </div>
-            <div class="result-container pr-2">
+            <div class="result-container pr-10">
               <div class="car-details-item pb-5 flex items-center gap-2">
-                <a class="text-lg font-semibold">
+                <a class="text-lg expanded-desc font-semibold">
                   Insurance Group:
                 </a>
-                <a class="text-3xl font-bold">
+                <a class="text-3xl expanded-desc font-bold">
                   {{ result.insuranceGroup }}
                 </a>
               </div>
-              <a class="text-3xl font-bold bg-slate-900 text-white rounded-2xl border-black border p-3">
+              <a class="text-3xl text-center expanded-desc font-bold bg-slate-900 text-white rounded-2xl p-3 min-w-56">
                 £{{
                 result.minPrice
                 }}
