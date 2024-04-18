@@ -1,62 +1,31 @@
 <app-header></app-header>
 <section id="SearchResults" class="flex flex-row">
-  <div
-    id="Main"
-    class="transform xl:translate-x-0 ease-in-out transition duration-500 flex flex-col justify-start h-full w-full sm:w-64 bg-gray-900"
-  >
+  <div id="Main"
+    class="transform xl:translate-x-0 ease-in-out transition duration-500 flex flex-col justify-start h-full w-full sm:w-64 bg-gray-900">
     <div class="flex justify-start items-center p-6 space-x-3">
       <p class="text-3xl font-bold leading-6 text-white">Search Cars</p>
     </div>
     <div class="px-6 py-4 flex flex-col justify-start items-start">
       <form (submit)="onSearch()" class="flex flex-col space-y-4 w-full">
         <div>
-          <label class="form-label text-lg font-semibold text-white"
-            >Make</label
-          >
-          <input
-            type="text"
-            name="make"
-            placeholder="Ford"
-            class="form-input"
-            required
-            [(ngModel)]="search.make"
-          />
+          <label class="form-label text-lg font-semibold text-white">Make</label>
+          <input type="text" name="make" placeholder="Ford" class="form-input" required [(ngModel)]="search.make" />
         </div>
         <div>
-          <label class="form-label text-lg font-semibold text-white"
-            >Model</label
-          >
-          <input
-            type="text"
-            name="model"
-            placeholder="Fiesta"
-            class="form-input"
-            [(ngModel)]="search.model"
-          />
+          <label class="form-label text-lg font-semibold text-white">Model</label>
+          <input type="text" name="model" placeholder="Fiesta" class="form-input" [(ngModel)]="search.model" />
         </div>
         <div>
-          <label class="form-label text-lg font-semibold text-white"
-            >Price From</label
-          >
-          <select
-            name="minPrice"
-            class="form-input w-full text-black"
-            [(ngModel)]="search.minPrice"
-          >
+          <label class="form-label text-lg font-semibold text-white">Price From</label>
+          <select name="minPrice" class="form-input w-full text-black" [(ngModel)]="search.minPrice">
             <option value="0">0</option>
             <option value="5000">5000</option>
             <option value="10000">10000</option>
           </select>
         </div>
         <div>
-          <label class="form-label text-lg font-semibold text-white"
-            >Price To</label
-          >
-          <select
-            name="maxPrice"
-            class="form-input w-full text-black"
-            [(ngModel)]="search.maxPrice"
-          >
+          <label class="form-label text-lg font-semibold text-white">Price To</label>
+          <select name="maxPrice" class="form-input w-full text-black" [(ngModel)]="search.maxPrice">
             <option value="0">0</option>
             <option value="5000">5000</option>
             <option value="10000">10000</option>
@@ -69,10 +38,8 @@
           </select>
         </div>
         <div class="w-full flex justify-center pt-8">
-          <button
-            type="submit"
-            class="search-button px-5 py-4 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-700 transition-colors"
-          >      
+          <button type="submit"
+            class="search-button px-5 py-4 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-700 transition-colors">
             Submit
           </button>
         </div>
@@ -84,39 +51,77 @@
     <div class="text-4xl font-bold p-1 mb-6">Results:</div>
     <div *ngIf="searchCars && searchCars.length > 0" class="mt-10">
       <div class="card-container flex flex-col">
-        <div
-          *ngFor="let result of searchCars"
-          class="card overflow-hidden shadow-lg rounded-lg my-2"
-        >
-          <div class="flex p-4">
-            <div class="card-image px-2">
-              <img
-                src="https://bcfy-bucket.s3.eu-west-2.amazonaws.com/{{
+        <div *ngFor="let result of searchCars" class="card overflow-hidden shadow-lg rounded-lg my-2">
+          <div class="flex card-content">
+            <div class="flex p-4">
+              <div class="card-image px-2">
+                <img src="https://bcfy-bucket.s3.eu-west-2.amazonaws.com/{{
                   result.make.toLowerCase()
-                }}-{{ result.model.toLowerCase() }}-{{ result.year }}.png"
-                alt="{{ result.model }}"
-                class="w-full h-48 bg-cover"
-              />
-            </div>
-            <div class="car-details">
-              <h2 class="text-2xl font-bold text-gray-800">
-                {{ result.make }} {{ result.model }} {{ result.year }}
-              </h2>
-              <h5>
-                <span class="text-gray-900 font-semibold">Price:</span> £{{
+                }}-{{ result.model.toLowerCase() }}-{{ result.year }}.png" alt="{{ result.model }}"
+                  class="w-full h-48 bg-cover" />
+              </div>
+              <div class="car-details">
+                <h2 class="text-3xl font-bold text-gray-800">
+                  {{ result.make }} {{ result.model }} {{ result.year }}
+                </h2>
+                <h5>
+                  <span class="text-gray-900 font-semibold">Price:</span> £{{
                   result.minPrice
-                }}
-                - £{{ result.maxPrice }}
-              </h5>
-              <div class="result-container py-2 pl-2">
-                <div class="result-item">
-                  <a class="fuel-icon"></a>
-                  <span class="result-field ml-2">{{ result.fuelType }}</span>
+                  }}
+                  - £{{ result.maxPrice }}
+                </h5>
+                <div class="result-container py-2 pl-2">
+                  <div class="result-item">
+                    <a class="fuel-icon"></a>
+                    <span class="result-field ml-2">{{ result.fuelType }}</span>
+                  </div>
+                  <div class="result-item">
+                    <a class="trans-icon"></a>
+                    <span class="result-field ml-2">{{ result.transmission }}</span>
+                  </div>
+                  <div class="result-item">
+                    <a class="engine-icon"></a>
+                    <span class="result-field ml-2">{{ result.engineSize }}</span>
+                  </div>
+                  <div class="result-item-shift">
+                    <a class="car-icon"></a>
+                    <span class="result-field ml-2">{{ result.bodyType }}</span>
+                  </div>
                 </div>
-                <div class="result-item">
-                  <a class="trans-icon"></a>
-                  <span class="result-field ml-2">{{ result.transmission }}</span>
-                </div>
+              </div>
+            </div>
+          </div>
+          <div class="expanded-details">
+            <div class="result-container py-2 pl-2 flex flex-col">
+              <a class="text-3xl font-bold">
+                {{ result.make }} {{ result.model }}
+              </a>
+              <div class="car-year-version flex items-center gap-2">
+                <a class="text-lg font-bold">
+                  {{ result.version }}
+                </a>
+              </div>
+              <div class="car-year-version flex items-center gap-2">
+                <a class="text-md font-bold">
+                  - {{ result.year }}
+                </a>
+              </div>
+              <div class="car-details-item flex items-center gap-2">
+                <a class="car-door-icon"></a>
+                <a class="text-md font-semibold">
+                  : {{ result.numberOfDoors }} DR
+                </a>
+              </div>
+              <div class="car-details-item flex items-center gap-2">
+                <a class="car-seat-icon"></a>
+                <a class="text-md font-semibold">
+                  : {{ result.numberOfSeats }} Seats
+                </a>
+              </div>
+              <div class="car-details-item flex items-center gap-2">
+                <a class="text-md font-semibold">
+                  Insurance Group: {{ result.insuranceGroup }}
+                </a>
               </div>
             </div>
           </div>
