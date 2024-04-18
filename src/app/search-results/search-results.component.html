@@ -61,16 +61,16 @@
                   class="w-full h-48 bg-cover" />
               </div>
               <div class="car-details">
-                <h2 class="text-4xl font-bold text-gray-800">
+                <a class="text-4xl font-bold text-gray-800">
                   {{ result.make }} {{ result.model }} {{ result.year }}
-                </h2>
-                <h5>
-                  <span class="text-gray-900 font-semibold">Price:</span> £{{
-                  result.minPrice
-                  }}
-                  - £{{ result.maxPrice }}
-                </h5>
+                </a>
                 <div class="result-container py-2 pl-2">
+                  <a class="pb-6 text-xl">
+                    <span class="text-gray-900 font-semibold">Price:</span> £{{
+                    result.minPrice
+                    }}
+                    - £{{ result.maxPrice }}
+                  </a>
                   <div class="result-item">
                     <a class="fuel-icon"></a>
                     <span class="result-field ml-2">{{ result.fuelType }}</span>
@@ -92,37 +92,37 @@
             </div>
           </div>
           <div class="expanded-details">
-            <div class="result-container py-2 pl-2 flex flex-col">
-              <a class="text-4xl font-bold">
+            <div class="result-container flex flex-col pl-4">
+              <a class="text-4xl font-extrabold">
                 {{ result.make }} {{ result.model }}
               </a>
               <div class="car-year-version flex items-center gap-2">
-                <a class="text-xl font-bold">
+                <a class="text-2xl font-bold">
                   - {{ result.year }}
                 </a>
               </div>
-              <div class="car-year-version flex items-center gap-2">
+              <div class="car-year-version flex items-center gap-2 pb-4 text-gray-500">
                 <a class="text-lg font-bold">
                   {{ result.version }}
                 </a>
               </div>
               <div class="car-details-item flex items-center gap-2">
                 <a class="car-door-icon"></a>
-                <a class="text-md font-semibold">
-                  : {{ result.numberOfDoors }} DR
+                <a class="text-xl font-semibold">
+                  {{ result.numberOfDoors }} DR
                 </a>
               </div>
               <div class="car-details-item flex items-center gap-2">
                 <a class="car-seat-icon"></a>
-                <a class="text-md font-semibold">
-                  : {{ result.numberOfSeats }} Seats
+                <a class="text-xl font-semibold">
+                  {{ result.numberOfSeats }} Seats
                 </a>
               </div>
-              <div class="car-details-item flex items-center gap-2">
+              <!-- <div class="car-details-item flex items-center gap-2">
                 <a class="text-md font-semibold">
                   Insurance Group: {{ result.insuranceGroup }}
                 </a>
-              </div>
+              </div> -->
             </div>
             <div class="result-container">
               <div class="result-item">
@@ -142,7 +142,22 @@
                 <span class="result-field ml-2 text-xl font-semibold">{{ result.bodyType }}</span>
               </div>
             </div>
-            <!-- <div class="result-container"></div> -->
+            <div class="result-container pr-2">
+              <div class="car-details-item pb-5 flex items-center gap-2">
+                <a class="text-lg font-semibold">
+                  Insurance Group:
+                </a>
+                <a class="text-3xl font-bold">
+                  {{ result.insuranceGroup }}
+                </a>
+              </div>
+              <a class="text-3xl font-bold bg-slate-900 text-white rounded-2xl border-black border p-3">
+                £{{
+                result.minPrice
+                }}
+                - £{{ result.maxPrice }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
