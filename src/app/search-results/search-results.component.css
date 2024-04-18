@@ -16,7 +16,7 @@
   src: url(./assets/NeoGeoVAR-Regular.ttf);
 }
 
-h1, h2, p, a {
+h1, h2, p, a, div {
   font-family: 'NeoGeo';
 }
 
@@ -26,8 +26,8 @@ h1, h2, p, a {
   align-items: stretch;
   gap: 16px;
   padding-top: 0;
-  width: 75%;
-  max-width: 1900px;
+  width: 100%;
+  max-width: 1500px;
 }
 
 #Main {
@@ -156,6 +156,12 @@ h1, h2, p, a {
   background-image: url('assets/car.svg');
 }
 
+.hovercar-icon {
+  width: 41px;
+  height: 41px;
+  background-image: url('assets/car.svg');
+}
+
 .result-container {
   display: flex;
   flex-direction: column;
@@ -222,9 +228,6 @@ h1, h2, p, a {
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* background: linear-gradient( 90deg, 
-        #166fbd, rgb(103, 140, 182)
-    ); */
 }
 
 .card:hover {
@@ -284,6 +287,7 @@ h1, h2, p, a {
 .card {
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; 
 }
 
 .card-content {
@@ -301,7 +305,9 @@ h1, h2, p, a {
   height: 100%;
   /* background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(217, 208, 194));
   color: rgb(0, 0, 0); */
-  background-image: linear-gradient(135deg, rgb(91, 90, 90), rgb(0, 0, 0));
+  /* background-image: linear-gradient(135deg, rgb(91, 90, 90), rgb(0, 0, 0));
+  color: #f4b53b; */
+  background-color: rgba(43, 43, 43, 0.74);
   color: #f4b53b;
   overflow: hidden;
   transition: width 0.5s ease;
@@ -309,12 +315,11 @@ h1, h2, p, a {
   align-items: center;
   justify-content: center;
   padding-left: 30px;
-
+  margin-right: auto;
 }
 
 .card:hover .expanded-details {
-  width: 80%;
-  /* Adjust as needed */
+  width: 65%;
 }
 
 .card:hover {
@@ -323,7 +328,6 @@ h1, h2, p, a {
 
 .card:hover .card-details {
   filter: blur(2px);
-  /* Optional: blur the details when hovered */
 }
 
 .result-container {
@@ -336,18 +340,34 @@ h1, h2, p, a {
 .car-details-item {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between icon and text */
+  gap: 10px;
 }
 
 .car-year-version {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between version and year */
+  gap: 10px; 
 }
 
-/* Responsive adjustments as necessary */
 @media (max-width: 768px) {
   .expanded-details {
     padding: 10px;
   }
+}
+
+.card:hover .car-details {
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.card:hover .expanded-details {
+  opacity: 1;
+}
+
+.hovercar-icon {
+  opacity: 0;
+}
+
+.card:hover .hovercar-icon {
+  opacity: 1;
 }

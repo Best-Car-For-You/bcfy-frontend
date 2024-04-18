@@ -61,7 +61,7 @@
                   class="w-full h-48 bg-cover" />
               </div>
               <div class="car-details">
-                <h2 class="text-3xl font-bold text-gray-800">
+                <h2 class="text-4xl font-bold text-gray-800">
                   {{ result.make }} {{ result.model }} {{ result.year }}
                 </h2>
                 <h5>
@@ -93,17 +93,17 @@
           </div>
           <div class="expanded-details">
             <div class="result-container py-2 pl-2 flex flex-col">
-              <a class="text-3xl font-bold">
+              <a class="text-4xl font-bold">
                 {{ result.make }} {{ result.model }}
               </a>
               <div class="car-year-version flex items-center gap-2">
-                <a class="text-lg font-bold">
-                  {{ result.version }}
+                <a class="text-xl font-bold">
+                  - {{ result.year }}
                 </a>
               </div>
               <div class="car-year-version flex items-center gap-2">
-                <a class="text-md font-bold">
-                  - {{ result.year }}
+                <a class="text-lg font-bold">
+                  {{ result.version }}
                 </a>
               </div>
               <div class="car-details-item flex items-center gap-2">
@@ -124,6 +124,25 @@
                 </a>
               </div>
             </div>
+            <div class="result-container">
+              <div class="result-item">
+                <a class="fuel-icon"></a>
+                <span class="result-field ml-2 text-xl font-semibold">{{ result.fuelType }}</span>
+              </div>
+              <div class="result-item">
+                <a class="trans-icon"></a>
+                <span class="result-field ml-2 text-xl font-semibold">{{ result.transmission }}</span>
+              </div>
+              <div class="result-item">
+                <a class="engine-icon"></a>
+                <span class="result-field ml-2 text-xl font-semibold">{{ result.engineSize }}</span>
+              </div>
+              <div class="result-item-shift">
+                <a class="hovercar-icon"></a>
+                <span class="result-field ml-2 text-xl font-semibold">{{ result.bodyType }}</span>
+              </div>
+            </div>
+            <!-- <div class="result-container"></div> -->
           </div>
         </div>
       </div>
