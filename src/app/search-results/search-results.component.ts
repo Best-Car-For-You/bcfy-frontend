@@ -15,6 +15,7 @@ import { HeaderComponent } from '../header/header.component';
 export class SearchResultsComponent {
   searchCars: Car[] = []
   showSearch = false;
+  resultsLoading = false;
   search: CarSearchQuery = {
     make: '',
     model: '',
@@ -43,8 +44,10 @@ export class SearchResultsComponent {
         maxPrice: parseInt(params['maxPrice'])
        }
       this.search = query;
+      this.resultsLoading = true;
       this.carsService.searchCars(query).subscribe((results: Car[]) => {
         this.searchCars = results;
+        this.resultsLoading = false;
       });
     });
   }
