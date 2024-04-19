@@ -6,11 +6,17 @@ export interface Car {
   id: string;
   make: string;
   model: string;
+  version: string;
   minPrice: number;
   maxPrice: number;
   transmission: string;
   fuelType: string;
+  bodyType: string;
+  engineSize: string;
+  numberOfDoors: number;
+  numberOfSeats: number;
   year: number;
+  insuranceGroup: number;
 }
 
 export interface CarSearchQuery {
