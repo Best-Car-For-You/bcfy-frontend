@@ -19,12 +19,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
+    - name: Setup Node.jss
       uses: actions/setup-node@v4
       with:
         node-version: lts/iron
         cache: npm
         cache-dependency-path: ./package-lock.json
+    
+    - run: "node make-env.js"
+      env:
+        ENVIRONMENT_PROD: ${{ secrets.ENVIRONMENT_PROD }}
 
     - name: Install dependencies
       run: npm ci
