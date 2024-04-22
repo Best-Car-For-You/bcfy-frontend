@@ -381,3 +381,57 @@ h1, h2, p, a, div {
 .card:hover .hovercar-icon {
   opacity: 1;
 }
+
+/* TO ADJUST */
+
+/* Mobile Details CSS */
+@media (max-width: 768px) {
+  .search-container {
+    width: fit-content;
+
+  }
+
+  .mobile-details {
+    background: #ffffff; /* Change as per your design */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem; /* Add space between the image and the details */
+  }
+
+  .mobile-details-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image {
+    width: 100%;
+  }
+
+  .car-info-left {
+    text-align: left;
+  }
+
+  .car-price {
+    background: #150446; /* Slightly different background for price for emphasis */
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem; /* Space above the price */
+  }
+
+  .expanded-details {
+    display: none;
+  }
+
+  .car-details {
+    display: none;
+  }
+}
+
+/* Ensure these details are hidden on larger screens */
+@media (min-width: 769px) {
+  .mobile-details {
+    display: none;
+  }
+}
+

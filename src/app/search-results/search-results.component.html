@@ -159,6 +159,30 @@
               </a>
             </div>
           </div>
+          <!-- TO ADJUST -->
+          <div class="mobile-details md:hidden">
+            <div class="mobile-details-content">
+              <div class="car-info flex justify-between items-center">
+                <div class="car-info-left">
+                  <div class="car-make-model-year">
+                    <span class="font-bold text-lg">{{ result.make }} {{ result.model }} {{ result.year }}</span>
+                  </div>
+                  <div class="car-extra-info">
+                    <span class="block">{{ result.fuelType }}</span>
+                    <span class="block">{{ result.transmission }}</span>
+                    <span class="block">{{ result.engineSize }} Engine</span>
+                    <span class="block">{{ result.bodyType }} Body</span>
+                    <span class="block">{{ result.numberOfDoors }} DR</span>
+                    <span class="block">{{ result.numberOfSeats }} Seats</span>
+                    <span class="block">Insurance Group: {{ result.insuranceGroup }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="car-price text-center mt-4">
+                <span class="text-lg font-bold">£{{ result.minPrice }} - £{{ result.maxPrice }}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
