@@ -37,18 +37,23 @@ export class SearchResultsComponent {
       //   this.router.navigate(['/']);
       // }
 
-      let query: CarSearchQuery = { 
-        make: params['make'], 
-        model: params['model'], 
-        minPrice: parseInt(params['minPrice']), 
-        maxPrice: parseInt(params['maxPrice'])
-       }
-      this.search = query;
-      this.resultsLoading = true;
-      this.carsService.searchCars(query).subscribe((results: Car[]) => {
-        this.searchCars = results;
-        this.resultsLoading = false;
-      });
+      this.handleSearch(params);
+    });
+  }
+
+  private handleSearch(params: any) {
+    let query: CarSearchQuery = {
+      make: params['make'],
+      model: params['model'],
+      minPrice: parseInt(params['minPrice']),
+      maxPrice: parseInt(params['maxPrice'])
+    };
+    this.search = query;
+    this.resultsLoading = true;
+    this.carsService.searchCars(query).subscribe((results: Car[]) => {
+      this.searchCars = results;
+      this.resultsLoading = false;
+      this.updateQueryParams();
     });
   }
 
@@ -56,16 +61,25 @@ export class SearchResultsComponent {
     return !params.make || !params.model || !params.minPrice || !params.maxPrice;
   }
 
+  private updateQueryParams(): void {
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: {
+        make: this.search.make,
+        model: this.search.model,
+        minPrice: this.search.minPrice,
+        maxPrice: this.search.maxPrice
+      },
+      queryParamsHandling: 'merge'
+      });
+  }
+
   onSearch(event?: Event): void {
     if (event) {
       event.preventDefault();
     }
     console.log('Search:', this.search);
-    this.carsService.searchCars(this.search).subscribe((results: Car[]) => {
-      console.log('Results:', results);
-      this.searchCars = results;
-    });
+    this.handleSearch(this.search);
   }
   
-
 }
