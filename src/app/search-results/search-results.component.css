@@ -342,7 +342,6 @@ div {
 .car-details {
   display: none;
 }
-}
 
 /* Ensure these details are hidden on larger screens */
 /* @media (min-width: 769px) {
