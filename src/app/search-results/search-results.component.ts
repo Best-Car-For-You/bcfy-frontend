@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Car, CarSearchQuery, CarsService } from '../cars.service';
 import { HeaderComponent } from '../header/header.component';
-
+import { SearchFiltersComponent } from '../search-filters/search-filters.component';
+import { SvgIconComponent, provideAngularSvgIcon } from 'angular-svg-icon';
 @Component({
   selector: 'app-search-results',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, HeaderComponent, SearchFiltersComponent, SvgIconComponent],
   templateUrl: './search-results.component.html',
   styleUrl: './search-results.component.css'
 })
@@ -16,6 +17,7 @@ export class SearchResultsComponent {
   searchCars: Car[] = []
   showSearch = false;
   resultsLoading = false;
+  showMobileFilters = false;
   search: CarSearchQuery = {
     make: '',
     model: '',
@@ -23,7 +25,9 @@ export class SearchResultsComponent {
     maxPrice: 0
   };
 
-  constructor(private activatedRoute: ActivatedRoute, private carsService: CarsService, private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private carsService: CarsService, private router: Router) {
+    this.handleSearch = this.handleSearch.bind(this);
+  }
 
   getCarImageUrl(car: Car): string {
     return `https://bcfy-bucket.s3.eu-west-2.amazonaws.com/${car.make}-${car.model}-${car.year}.png`;
@@ -41,7 +45,15 @@ export class SearchResultsComponent {
     });
   }
 
-  private handleSearch(params: any) {
+  openMobileFilters(): void {
+    this.showMobileFilters = true;
+  }
+
+  closeMobileFilters(): void {
+    this.showMobileFilters = false;
+  }
+
+  handleSearch(params: any) {
     let query: CarSearchQuery = {
       make: params['make'],
       model: params['model'],

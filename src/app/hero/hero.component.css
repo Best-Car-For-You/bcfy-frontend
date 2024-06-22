@@ -19,6 +19,10 @@
     src: url(./assets/NeoGeoVAR-Regular.ttf);
 }
 
+a, div {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 h1, h2, p {
     font-family: 'NeoGeo';
 }
@@ -28,7 +32,6 @@ h1, h2, p {
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* width: fit-content; */
     max-width: 90%;
     margin: auto;
     position: relative;
@@ -53,16 +56,17 @@ h1, h2, p {
 }
 
 .search-container {
+    display: inline;
     background-color: #f4b53b;
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.705);
-    max-width: 800px;
+    max-width: 1000px;
     margin: 2rem auto;
 }
 
 .form-input {
-    border: 1px solid #ffffff;
+    border: 1px solid #616161;
     border-radius: 15px;
     padding: 0.75rem 1rem;
     font-size: 1rem;
@@ -76,11 +80,10 @@ h1, h2, p {
 }
 
 .search-button {
-    background-color: #000000;
-    color: #f4b53b;
+    background-color: #f4b53b;
+    color: #000000;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;

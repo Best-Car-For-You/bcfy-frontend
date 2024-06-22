@@ -30,63 +30,50 @@
   </div>
 </section>
 
-<div class="search-container" [hidden]="!showSearch">
-  <div class="text-5xl font-bold p-1 mb-6">Search</div>
-  <form (submit)="onSearch()" class="flex flex-wrap justify-center gap-4">
-    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
-      <label class="form-label text-xl font-bold">Make</label>
-      <input type="text" name="make" placeholder="Ford" class="form-input" required [(ngModel)]="search.make" />
-    </div>
-    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
-      <label class="form-label text-xl font-bold">Model</label>
-      <input type="text" name="model" placeholder="Fiesta" class="form-input" [(ngModel)]="search.model" />
-    </div>
-    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
-      <label class="form-label text-xl font-bold">Price From</label>
-      <input type="number" name="minPrice" placeholder="£0" class="form-input" [(ngModel)]="search.minPrice" />
-    </div>
-    <div class="flex flex-col flex-1 min-w-[calc(50%-1rem)]">
-      <label class="form-label text-xl font-bold">Price To</label>
-      <input type="number" name="maxPrice" placeholder="£5000" class="form-input" [(ngModel)]="search.maxPrice" />
-    </div>
-    <div class="w-full flex justify-center">
-      <button type="submit" class="search-button text-xl">Submit</button>
-    </div>
-  </form>
-
-  <!-- <div *ngIf="searchResults && searchResults.length > 0" class="mt-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        *ngFor="let result of searchResults"
-        class="bg-white overflow-hidden shadow-lg rounded-lg"
-      >
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">
-            {{ result.make }} {{ result.model }}
-          </div>
-          <img
-            src="path/to/image/{{ result.id }}"
-            alt="{{ result.model }}"
-            class="w-full h-48 bg-cover"
-          />
-          <p class="text-gray-700 text-base mt-4">
-            Year: {{ result.year }}<br />
-            Price: £{{ result.minPrice }} - £{{ result.maxPrice }}<br />
-            Fuel Type: {{ result.fuelType }}<br />
-            Transmission: {{ result.transmission }}
-          </p>
-        </div>
-        <div class="px-6 pt-4 pb-2">
-          <span
-            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-            >#{{ result.fuelType }}</span
-          >
-          <span
-            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-            >#{{ result.transmission }}</span
-          >
+<div class="search-container" [class.hidden]="!showSearch">
+  <div class="grid grid-cols-2 gap-8 p-6 bg-[#f4b53b] rounded-lg">
+    <!--Left-->
+    <div class="flex bg-[#f4b53b] rounded-lg">
+      <div class="">
+        <a class="text-3xl font-bold md:text-4xl">Find Your Perfect Car</a>
+        <div class="text-lg md:text-2xl">- Driving Affordability</div>
+        <div class="text-md md:text-xl">
+          <p>Use the form on the right to search for your ideal car:</p>
+          <ul class="list-disc list-inside">
+            <li><strong>Make:</strong> Car manufacturer (e.g., Ford, Toyota).</li>
+            <li><strong>Model:</strong> Specific model (e.g., Fiesta, Yaris).</li>
+            <li><strong>Price From:</strong> Minimum price you can pay.</li>
+            <li><strong>Price To:</strong> Maximum price you can pay.</li>
+            <li>Click "Submit" to view cars that match your criteria.</li>
+          </ul>
         </div>
       </div>
     </div>
-  </div> -->
+    <!--Right-->
+    <div class="flex flex-col justify-center bg-white rounded-lg p-6 border border-black">
+      <h1 class="text-3xl font-bold mb-2">Search</h1>
+      <form (submit)="onSearch()" class="flex flex-col justify-center gap-4">
+        <div class="flex flex-col min-w-[calc(50%-1rem)]">
+          <label class="form-label text-xl font-bold">Make</label>
+          <input type="text" name="make" placeholder="Ford" class="form-input" required [(ngModel)]="search.make" />
+        </div>
+        <div class="flex flex-col min-w-[calc(50%-1rem)]">
+          <label class="form-label text-xl font-bold">Model</label>
+          <input type="text" name="model" placeholder="Fiesta" class="form-input" [(ngModel)]="search.model" />
+        </div>
+        <div class="flex flex-col min-w-[calc(50%-1rem)]">
+          <label class="form-label text-xl font-bold">Price From</label>
+          <input type="number" name="minPrice" placeholder="£0" class="form-input" [(ngModel)]="search.minPrice" />
+        </div>
+        <div class="flex flex-col min-w-[calc(50%-1rem)]">
+          <label class="form-label text-xl font-bold">Price To</label>
+          <input type="number" name="maxPrice" placeholder="£5000" class="form-input" [(ngModel)]="search.maxPrice" />
+        </div>
+        <div class="w-full flex justify-center">
+          <button type="submit" class="search-button text-xl border border-black">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+

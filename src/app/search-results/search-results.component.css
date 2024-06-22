@@ -16,7 +16,11 @@
   src: url(./assets/NeoGeoVAR-Regular.ttf);
 }
 
-h1, h2, p, a, div {
+h1,
+h2,
+p,
+a,
+div {
   font-family: 'NeoGeo';
 }
 
@@ -32,8 +36,6 @@ h1, h2, p, a, div {
 
 #Main {
   flex: 0 0 275px;
-  display: flex;
-  flex-direction: column;
   padding-top: 0;
 }
 
@@ -76,90 +78,9 @@ h1, h2, p, a, div {
   flex-direction: column;
 }
 
-.form-input {
-  border: 2px solid #2D3748;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  transition: all 0.3s ease-in-out;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: #63B3ED;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 2px rgba(244, 181, 59, 0.4);
-}
-
-.search-button {
-  background-color: #f4b53b;
-  color: #000000;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-}
-
-.search-button:hover,
-.search-button:focus {
-  background-color: #333333;
-  color: #ffd700;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
 .form-input,
 .search-button {
   box-sizing: border-box;
-}
-
-.trans-icon {
-  width: 30px;
-  height: 30px;
-  background-image: url('assets/manual-transmission-icon.svg');
-}
-
-.fuel-icon {
-  width: 30px;
-  height: 30px;
-  background-image: url('assets/fuel_icon.svg');
-}
-
-.engine-icon {
-  width: 30px;
-  height: 30px;
-  background-image: url('assets/automobile-engine.svg');
-}
-
-.car-door-icon {
-  width: 30px;
-  height: 30px;
-  color: #ffffff;
-  background-image: url('assets/car-door.svg');
-}
-
-.car-seat-icon {
-  width: 30px;
-  height: 30px;
-  color: #ffffff;
-  background-image: url('assets/seat.svg');
-}
-
-.car-icon {
-  width: 41px;
-  height: 41px;
-  background-image: url('assets/car.svg');
-}
-
-.hovercar-icon {
-  width: 41px;
-  height: 41px;
-  background-image: url('assets/car.svg');
 }
 
 .result-container {
@@ -186,6 +107,10 @@ h1, h2, p, a, div {
 }
 
 @media (max-width: 768px) {
+  :host {
+    flex-direction: column;
+  }
+
   #SearchResults {
     flex-direction: column;
     align-items: center;
@@ -209,15 +134,6 @@ h1, h2, p, a, div {
   #Main {
     width: calc(100% - 2rem);
     max-width: none;
-  }
-
-  .form-input {
-    padding: 0.5rem 0.75rem;
-  }
-
-  .form-input,
-  .search-button {
-    width: auto;
   }
 }
 
@@ -347,7 +263,7 @@ h1, h2, p, a, div {
 .car-year-version {
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
@@ -382,56 +298,55 @@ h1, h2, p, a, div {
   opacity: 1;
 }
 
-/* TO ADJUST */
+.search-container {
+  width: fit-content;
 
-/* Mobile Details CSS */
-@media (max-width: 768px) {
-  .search-container {
-    width: fit-content;
+}
 
-  }
+.mobile-details {
+  background: #ffffff;
+  /* Change as per your design */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  /* Add space between the image and the details */
+}
 
-  .mobile-details {
-    background: #ffffff; /* Change as per your design */
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem; /* Add space between the image and the details */
-  }
+.mobile-details-content {
+  display: flex;
+  flex-direction: column;
+}
 
-  .mobile-details-content {
-    display: flex;
-    flex-direction: column;
-  }
+.card-image {
+  width: 100%;
+}
 
-  .card-image {
-    width: 100%;
-  }
+.car-info-left {
+  text-align: left;
+}
 
-  .car-info-left {
-    text-align: left;
-  }
+.car-price {
+  background: #150446;
+  /* Slightly different background for price for emphasis */
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  /* Space above the price */
+}
 
-  .car-price {
-    background: #150446; /* Slightly different background for price for emphasis */
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem; /* Space above the price */
-  }
+.expanded-details {
+  display: none;
+}
 
-  .expanded-details {
-    display: none;
-  }
-
-  .car-details {
-    display: none;
-  }
+.car-details {
+  display: none;
+}
 }
 
 /* Ensure these details are hidden on larger screens */
-@media (min-width: 769px) {
+/* @media (min-width: 769px) {
   .mobile-details {
     display: none;
   }
-}
-
+} */
